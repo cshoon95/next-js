@@ -1,34 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# next.js
+Framework라고 생각. 
+next js가 내가 작성한 코드를 호출하고 있음.
+## pages 
+함수의 이름은 중요하지 않고, 중요한 것은 함수가 default로 export된다는 점.
+파일명에 따라 Url이 결정된다. index와 같은 예외가 있긴하지만, pages안에 register.ts인 경우 localhost:3000/register
 
-## Getting Started
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Client Side Rendering vs Server Side Rendering
+react-create-app -> CSR
+    📌 나의 브라우저가 유저가 보는 UI를 만드는 모든 것을 한다는 것을 의미
+    📌 브라우저가 자바스크립트, React 등 모든 것을 fetch한 후에야 UI가 보임 
+    📌 예를 들어 이미 렌더링 된 것 중 로고나 네비게이션이나 유저가 보는 HTML 소스코드 안에 들어있지 않음.
+    * noscript : 유저가 브라우저에서 자바스크립트를 비활성화 했을 때만 나오는 태그
+next-js          -> SSR
+    📌 Pre Rendering
+    📌 유저가 페이지를 요청하면 진짜 HTML을 얻게 됨. (유저들의 연결 속도가 느리거나 자바스크립트가 비활성화 되어있더라도.)
+    📌 hydration
+        - Hydrate는 Server Side 단에서 렌더링 된 정적 페이지와 번들링된 JS파일을 클라이언트에게 보낸 뒤, 클라이언트 단에서 HTML 코드와 React인 JS코드를 서로 매칭 시키는 과정
