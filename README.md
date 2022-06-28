@@ -21,7 +21,7 @@ next js가 내가 작성한 코드를 호출하고 있음.
 
 ## styled jsx
 ```javascript
-<style jsx>{`
+<style jsx global>{`
 nav {
     background-color: tomato;
 }
@@ -29,3 +29,9 @@ a {
     text-decoration: none;
 }`}</style>
 ```
+
+## _app.ts
+    📌 Next.js는 현재 프로젝트 기준으로 about이 렌더링되기 전에 먼저 app을 봄 (app -> about -> index)
+    📌 app = bluepoint
+    📌 _app -> param -> {Componrnt, props}
+    📌 global prop is applied in all components in a sigle page and css imported in _app.js is applied in all components in all pages.
