@@ -3,12 +3,45 @@ import { useRouter } from "next/router";
 
 export default function NavBar() {
     const router = useRouter();
-
     return (
-        // Link를 사용하지 않고 anchor태그를 사용해서 한다면 페이지를 전체 리로드한다.
         <nav>
-            <Link href="/"><a className={router.pathname === "/" ? "active" : ""}>Home</a></Link>
-            <Link href="/about"><a className={router.pathname === "/about" ? "active" : ""}>About</a></Link>
+            <img src="/vercel.svg" />
+            <div>
+                <Link href="/">
+                    <a className={router.pathname === "/" ? "active" : ""}>Home</a>
+                </Link>
+                <Link href="/about">
+                    <a className={router.pathname === "/about" ? "active" : ""}>About</a>
+                </Link>
+            </div>
+            <style jsx>{`
+                nav {
+                    display: flex;
+                    gap: 10px;
+                    flex-direction: column;
+                    align-items: center;
+                    padding-top: 20px;
+                    padding-bottom: 10px;
+                    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+                }
+                img {
+                    max-width: 100px;
+                    margin-bottom: 5px;
+                }
+                nav a {
+                    ont-weight: 600;
+                    ont-size: 18px;
+                }
+                .active {
+                    color: tomato;
+                }
+                nav div {
+                    isplay: flex;
+                    ap: 10px;
+                }
+                `}
+            </style>
         </nav>
-    )
+    );
 }

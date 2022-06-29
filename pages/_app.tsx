@@ -1,23 +1,11 @@
 import { AppProps } from 'next/dist/shared/lib/router/router'
 import NavBar from "../components/NavBar";
+import Layout from './Layout';
 
 export default function App({Component, pageProps}: AppProps) {
     return (
-        <>
-            <NavBar />
+        <Layout>
             <Component {...pageProps}/>
-            <span>코딩병원</span>
-            <style jsx global>{`
-                nav {
-                    background-color: tomato;
-                }
-                a {
-                    text-decoration: none;
-                }
-                .active {
-                    color: yellow;
-                }`
-            }</style>
-        </>
+        </Layout>
     );
 };
