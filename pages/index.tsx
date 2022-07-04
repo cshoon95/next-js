@@ -36,7 +36,6 @@ export default function Home() {
             setMovies(results);
         })();
     }, []);
-
     return (
         <>
         <div className="container">
@@ -50,7 +49,7 @@ export default function Home() {
                     </div>
                 )
             })}
-        </div>
+        </div> 
         <style jsx>{`
             .container {
                 display: grid;
