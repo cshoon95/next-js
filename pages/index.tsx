@@ -76,5 +76,14 @@ export default function Home() {
 }
 
 export async function getServerSideProps() {
-    
+    const { results } = await (
+        await fetch(
+            `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
+        )
+    ).json();
+    return {
+        props: {
+            results,
+        }
+    }
 }
