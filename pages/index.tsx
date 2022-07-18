@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Head from "next/head";
-import NavBar from "../components/NavBar";
 import Seo from "../components/Seo";
-
-const API_KEY = "10923b261ba94d897ac6b81148314a3f";
-
 interface IGetMoviesProps {
     page: number;
     results: IMovieProps[];
@@ -28,14 +23,11 @@ export default function Home() {
 
     useEffect(() => {
         (async() => {
-            const { results } = await (
-                await fetch(
-                    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
-                )
-            ).json();
+            const { results } = await (await fetch(`/api/movies`)).json();
             setMovies(results);
         })();
     }, []);
+
     return (
         <>
         <div className="container">
@@ -73,17 +65,4 @@ export default function Home() {
         `}</style>
         </>
     );
-}
-
-export async function getServerSideProps() {
-    const { results } = await (
-        await fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
-        )
-    ).json();
-    return {
-        props: {
-            results,
-        }
-    }
 }
